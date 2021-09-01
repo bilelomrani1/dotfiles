@@ -129,3 +129,14 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
+
+# The next line updates PATH for the Google Cloud SDK.
+
+if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'; fi 
+
+# The next line enables shell command completion for gcloud.
+
+if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'; fi
