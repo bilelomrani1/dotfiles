@@ -130,12 +130,6 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Virtualenvwrapper setup
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Illuin
-VIRTUALENVWRAPPER_PYTHON='/Users/bilelomrani/.asdf/shims/python'
-source /usr/local/bin/virtualenvwrapper.sh
-
 # The next line updates PATH for the Google Cloud SDK.
 
 if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'; fi 
