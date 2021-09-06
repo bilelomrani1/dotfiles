@@ -130,8 +130,11 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
-VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
+# Virtualenvwrapper setup
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Illuin
+VIRTUALENVWRAPPER_PYTHON='/Users/bilelomrani/.asdf/shims/python'
+source /usr/local/bin/virtualenvwrapper.sh
 
 # The next line updates PATH for the Google Cloud SDK.
 
@@ -140,3 +143,16 @@ if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion
 # The next line enables shell command completion for gcloud.
 
 if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'; fi
+
+### Fix slowness of pastes with zsh-syntax-highlighting.zsh
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+### Fix slowness of pastes
