@@ -81,7 +81,7 @@ source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 plugins=(
   asdf
   git
-  osx
+  macos
   zsh-syntax-highlighting
   zsh-autosuggestions
 )
