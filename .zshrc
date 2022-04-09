@@ -80,10 +80,12 @@ source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   asdf
+  docker
+  docker-compose
   git
   macos
-  zsh-syntax-highlighting
   zsh-autosuggestions
+  fast-syntax-highlighting
 )
 
 # initialize autocomplete here, otherwise functions won't be loaded
@@ -91,6 +93,9 @@ autoload -U compinit
 compinit
 
 source $ZSH/oh-my-zsh.sh
+
+# Fix suggestions not cleared after paste when using bracketed-paste-magic
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste accept-line)
 
 # Better history
 # Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
